@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}¡Registro Exitoso!{% endblock %}
+
+{% block content %}
+    <h1>¡Evento registrado con éxito!</h1>
+
+    <h2>Resumen del Evento</h2>
+    <p><strong>Nombre:</strong> {{ datos_evento.nombre_del_evento }}</p>
+    <p><strong>Fecha:</strong> {{ datos_evento.fecha }}</p>
+    <p><strong>Ubicación:</strong> {{ datos_evento.ubicacion|default:"No especificada" }}</p>
+
+    {% if datos_participantes %}
+        <h2>Participantes Registrados</h2>
+        <ul>
+            {% for p in datos_participantes %}
+                <li>{{ p.nombre_del_participante }} ({{ p.correo_electronico }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se registraron participantes.</p>
+    {% endif %}
+
+    <a href="/">Registrar otro evento</a>
+{% endblock %}

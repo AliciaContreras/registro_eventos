@@ -1,0 +1,23 @@
+<!-- eventos/templates/registrar_evento.html -->
+{% extends 'formulario_base.html' %}
+
+{% block title %}Registrar Nuevo Evento{% endblock %}
+
+{% block form_title %}Formulario de Registro de Evento{% endblock %}
+
+{% block formulario_contenido %}
+    
+    <h2>Datos del Evento</h2>
+    {{ evento_form.as_p }}
+
+    <hr>
+
+    <h2>Participantes</h2>
+    {% for form in participante_forms %}
+        <fieldset>
+            <h4>Participante {{ forloop.counter }}</h4>
+            {{ form.as_p }}
+        </fieldset>
+    {% endfor %}
+
+{% endblock %}
